@@ -1,4 +1,4 @@
-import { createContext, useState, ReactNode } from 'react';
+import { createContext, useState, ReactNode, useEffect } from 'react';
 import challenges from '../../challenges.json';
 // createContext cria um contexto que comunica os componentes uns com os outros. Para que eventos de um determinado componente cause algum efeito ou evento em outro componente;
 
@@ -17,6 +17,7 @@ interface ChallengesContextData {
     levelUp: () => void;
     startNewChallenger: () => void;
     resetChallenge: () => void;
+    completedChallenge: () => void;
 }
 
 
@@ -35,6 +36,11 @@ export function ChallengesProvider ( { children }: ChallengesProviderProps) {
 
     const experienceToNextLevel  = Math.pow((level + 1) * 4 ,2)
 
+
+    useEffect(() => {
+        Notification.requestPermission();
+    }, [])
+
     function levelUp () {
         setLevel(level + 1);
     }
@@ -43,11 +49,40 @@ export function ChallengesProvider ( { children }: ChallengesProviderProps) {
         const randomChallengeIndex = Math.floor(Math.random() * challenges.length)
         const challenge = challenges [randomChallengeIndex];
         setActiveChallenge(challenge)
+
+        new Audio('/notification.mp3').play(); 
+
+        if (Notification.permission === 'granted') {
+            new Notification ('Novo Desafio', {body: `Valendo ${challenge.amount} xp!`})
+        }
     }
 
     function resetChallenge () {
         setActiveChallenge(null);
     }
+
+
+    function completedChallenge () {
+        if (!activeChallenge) {
+            return;
+        }
+
+        const  { amount }  = activeChallenge;
+
+        let finalExperience = currentExperience + amount;
+
+        if (finalExperience >= experienceToNextLevel) {
+            finalExperience = finalExperience - experienceToNextLevel;
+            levelUp();
+        }
+
+        setCurrentExperience(finalExperience);
+        setActiveChallenge(null);
+        setChallengesCompleted(challengesCompleted + 1);
+
+
+    }
+
 
     return (
         <ChallengesContext.Provider value = { {
@@ -58,7 +93,8 @@ export function ChallengesProvider ( { children }: ChallengesProviderProps) {
             startNewChallenger,
             activeChallenge,
             resetChallenge,
-            experienceToNextLevel,           
+            experienceToNextLevel,
+            completedChallenge,           
              }
             
             }>
