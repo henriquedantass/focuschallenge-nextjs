@@ -39,7 +39,7 @@ export function Countdown() {
                  disabled
                  className={styles.countdownButton}
              >
-                 Go Challenge
+                 Go Challenge ✅
              </button>
             ) : (
                 <>
@@ -49,7 +49,7 @@ export function Countdown() {
                         className={`${styles.countdownButton} ${ styles.countdownButtonIsActive}`}
                         onClick={resetCountdown}
                     >
-                        Stop Focus
+                        Stop Focus ❌
                     </button>
     
                 ) : (
@@ -58,7 +58,7 @@ export function Countdown() {
                             className={styles.countdownButton}
                             onClick={startCountdown}
                         >
-                            Go Focus!
+                            Go Focus! 👊
                         </button>
                     )}
                 </>
