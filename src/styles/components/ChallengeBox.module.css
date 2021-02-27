@@ -106,3 +106,10 @@
 .challengeActive footer button:hover {
     filter: brightness(0.9);
 }
+
+
+@media ( max-width: 600px) {
+    .challengeBoxContainer {
+        height: 50vh;
+    }
+}
