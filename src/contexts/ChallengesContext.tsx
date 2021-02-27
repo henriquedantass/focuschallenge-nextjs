@@ -1,6 +1,7 @@
 import { createContext, useState, ReactNode, useEffect } from 'react';
 import Cookies from 'js-cookie'
 import challenges from '../../challenges.json';
+import { LevelUpModal } from '../components/LevelUpModal';
 // createContext cria um contexto que comunica os componentes uns com os outros. Para que eventos de um determinado componente cause algum efeito ou evento em outro componente;
 
 
@@ -20,6 +21,7 @@ interface ChallengesContextData {
     startNewChallenger: () => void;
     resetChallenge: () => void;
     completedChallenge: () => void;
+    closeModalLevelUp: () => void;
 }
 
 
@@ -38,7 +40,7 @@ export function ChallengesProvider ( { children, ...rest }: ChallengesProviderPr
     const [currentExperience, setCurrentExperience] = useState(rest.currentExperience ?? 1);
     const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? 0);
     const [activeChallenge, setActiveChallenge] = useState(null)
-
+    const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false)
     const experienceToNextLevel  = Math.pow((level + 1) * 4 ,2)
 
 
@@ -59,7 +61,14 @@ export function ChallengesProvider ( { children, ...rest }: ChallengesProviderPr
 
     function levelUp () {
         setLevel(level + 1);
+        setIsLevelUpModalOpen (true);
+
     }
+
+    function closeModalLevelUp () {
+       setIsLevelUpModalOpen (false);
+    }
+
 
     function startNewChallenger () {
         const randomChallengeIndex = Math.floor(Math.random() * challenges.length)
@@ -110,11 +119,14 @@ export function ChallengesProvider ( { children, ...rest }: ChallengesProviderPr
             activeChallenge,
             resetChallenge,
             experienceToNextLevel,
-            completedChallenge,           
+            completedChallenge,
+            closeModalLevelUp,           
              }
             
             }>
           {children}
+
+          {isLevelUpModalOpen && <LevelUpModal/>}
         </ChallengesContext.Provider>
     );
 
