@@ -10,9 +10,9 @@ export function  Profile () {
     return (
         <div className = {styles.containerProfile}>
 
-            <img src = "https:github.com/henriquedantass.png" alt="Henrique Dantas"/>
+            <img src = "/icons/user.svg" alt="Henrique Dantas"/>
             <div>
-                <strong>Henrique Dantas</strong>
+                <strong>Usuário</strong>
                 <p>
                     <img src="icons/level.svg" alt="level"/>
                     Level {level}
