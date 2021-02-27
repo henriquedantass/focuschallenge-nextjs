@@ -13,6 +13,8 @@
 
 <p align="center">
   <img alt="focus.challenger" src="description.png" width="100%">
+  <img alt="focus.challenger.desafio" src ="desafio.png" width = "100%">
+  <img alt="focus.challenger.levelUp" src ="levelUp.png" width = "100%">
 </p>
 
 ## 🚀 Tecnologias
@@ -25,7 +27,7 @@ Esse projeto foi desenvolvido utilizando:
 
 ## 💻 Projeto
 
-O focus challenger é uma aplicação baseada no conceito de pomodoro a qual o individuo mantém um foco total durante 25 minutos e depois realiza alguma outra atividade além do que está mantendo o foco. Essa aplicação traz desafios após os minutos e ao completa-los o usuário é recompensado com uma quantidade de experiência para subir de level.
+O focus challenger é uma aplicação baseada no conceito de pomodoro a qual o individuo mantém um foco total durante 25 minutos e depois realiza alguma outra atividade além do que está mantendo o foco. Essa aplicação traz desafios após os minutos e ao completa-los o usuário é recompensado com uma quantidade de experiência para subir de level. Para acessar a aplicação online acesse o link https://focus-challenger.vercel.app/ sujeito a bugs de imagem.
 
 ## 🔖 Layout 
 
