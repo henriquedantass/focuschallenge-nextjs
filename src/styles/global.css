@@ -5,7 +5,8 @@
 }
 :root {
     --white: #fff;
-    --background: #f3f3f5;
+    --background: #1b1f23;
+    --background-light: #f3f3f5;
     --gray-line: #DCDDE0;
     --text: #666666;
     --text-hightlight: #B3B9FF;
@@ -14,8 +15,10 @@
     --green: #4CD62B;
     --blue: #5965E0;
     --blue-dark: #4953B8;
+    --blue-dark-2: #1770F0;
     --blue-twitter: #2AA9E0;
     --purple-light :#8765e0;
+
 }
 
 @media (max-widht: 1080px) {
@@ -29,6 +32,7 @@
     html {
         font-size: 87.5%;
     }
+
 }
 
 body {

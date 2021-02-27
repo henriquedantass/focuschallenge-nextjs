@@ -1,6 +1,6 @@
 .challengeBoxContainer {
     height: 100%;
-    background: var(--white);
+    background: var(--background-light);
     border-radius: 5px;
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
     padding: 1.5rem 2rem;

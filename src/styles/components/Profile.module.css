@@ -16,12 +16,13 @@
 .containerProfile div strong {
     font-weight: 600;
     font-size: 1.5rem;
-    color: var(--title);
+    color: var(--blue);
 }
 
 .containerProfile div p {
     font-size: 1rem;
     margin-top: 0.5rem;
+    color: var(--background-light);
 }
 
 
